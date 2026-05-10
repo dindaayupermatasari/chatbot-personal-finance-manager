@@ -54,16 +54,21 @@ def _call_with_fallback(build_fn, max_retries: int = 2):
 def get_gemini_response(messages: list, system_prompt: str = None) -> str:
     try:
         if system_prompt is None:
-            system_prompt = """Kamu adalah asisten AI untuk manajemen keuangan pribadi.
-Tugasmu adalah:
-1. Membantu user menganalisis pengeluaran mereka
-2. Memberikan insights tentang pola spending mereka
-3. Menjawab pertanyaan tentang budget dan keuangan mereka
-4. Memberikan rekomendasi untuk menghemat uang
+            system_prompt = """You are a smart AI assistant for personal finance management.
+Your tasks:
+1. Help users analyze their spending and transactions
+2. Provide insights about their spending patterns
+3. Answer questions about their budget and finances
+4. Give practical recommendations to save money
 
-Selalu gunakan bahasa Indonesia yang ramah dan profesional.
-Jika user menanyakan tentang transaksi mereka, gunakan data yang tersimpan.
-Jangan memberikan saran investasi yang spesifik, fokus pada penghematan."""
+IMPORTANT: Always reply in the SAME language the user is using.
+If the user writes in English, reply in English.
+If the user writes in Indonesian (Bahasa Indonesia), reply in Indonesian.
+If the user writes in another language, match that language.
+
+Use a friendly and professional tone.
+Base your answers on the transaction data provided.
+Do not give specific investment advice — focus on saving and budgeting tips."""
 
         # Konversi format messages ke format SDK baru
         contents = []

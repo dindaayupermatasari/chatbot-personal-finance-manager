@@ -512,7 +512,7 @@ def show_app():
 
         page = st.radio(
             "Navigation",
-            ["📊 Dashboard", "💬 Chat Bot", "📝 Add Transaction", "⚙️ Categories"],
+            ["Dashboard", "Chatbot", "Add Transaction", "Categories"],
             label_visibility="collapsed",
         )
 
@@ -538,7 +538,7 @@ def show_app():
         st.caption("Powered by Gemini AI")
 
     # ── Dashboard ─────────────────────────────────────────────────────────────
-    if page == "📊 Dashboard":
+    if page == "Dashboard":
         st.markdown("## Dashboard")
 
         col_flt1, _, _, _ = st.columns([1, 1, 2, 1])
@@ -730,7 +730,7 @@ def show_app():
             st.info("No transactions yet. Add one via the 'Add Transaction' menu.")
 
     # ── Chat Bot ──────────────────────────────────────────────────────────────
-    elif page == "💬 Chat Bot":
+    elif page == "Chatbot":
         st.markdown("## AI Finance Assistant")
         st.caption("Ask anything about your finances.")
 
@@ -818,7 +818,7 @@ def show_app():
                 st.rerun()
 
     # ── Add Transaction ───────────────────────────────────────────────────────
-    elif page == "📝 Add Transaction":
+    elif page == "Add Transaction":
         st.markdown("## Add Transaction")
 
         tab1, tab2 = st.tabs(["  ✏️ Manual Entry  ", "  📷 Upload Receipt  "])
@@ -1075,7 +1075,7 @@ def show_app():
                 )
 
     # ── Categories ────────────────────────────────────────────────────────────
-    elif page == "⚙️ Categories":
+    elif page == "Categories":
         st.markdown("## Manage Categories")
 
         # Filter periode khusus untuk halaman Categories
